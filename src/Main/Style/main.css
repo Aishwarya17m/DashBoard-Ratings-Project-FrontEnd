@@ -1,0 +1,6 @@
+.main-container container{
+    justify-content: space-between;
+}
+.navbar-brand{
+    width:80%;
+}
