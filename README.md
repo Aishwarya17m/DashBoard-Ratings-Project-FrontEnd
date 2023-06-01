@@ -1,3 +1,7 @@
+# Download project steps
+1. Download zip folder or clone the repo in VS CODE 
+2. In vs code terminal use "npm install" command  (in working directory ie., c:/Dashboard/dashboardapp    (dashboardapp- react app name)) 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
