@@ -1,0 +1,7 @@
+.admin-main-container{
+    display: flex;
+    justify-content: space-between;
+}
+.admin-container{
+width:80%;
+}
