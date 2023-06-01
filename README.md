@@ -1,7 +1,4 @@
-# Download project steps
-1. Download zip folder or clone the repo in VS CODE 
-2. In vs code terminal use "npm install" command  (in working directory ie., c:/Dashboard/dashboardapp    (dashboardapp- react app name)) 
-
+# Movie Rating Dashboard
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
