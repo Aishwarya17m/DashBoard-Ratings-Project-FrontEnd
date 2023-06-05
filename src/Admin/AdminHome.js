@@ -3,11 +3,12 @@ import AdminNavbar from './AdminNavbar'
 import AddMovies from './AddMovies';
 import './Styles/AdminHome.css'
 import DisplayMovies from './DisplayMovies';
-import Dashboard from './Dashboard';
+
+import DashBoard from './Dashboard/DashBoard';
 function AdminHome() {
   const [addmovies,setaddmovies]=useState(false);
   const [viewmovies,setviewmovies]=useState(false);
-  const [viewdashboard,setviewdashboard]=useState(false);
+  const [viewdashboard,setviewdashboard]=useState(true);
 
 const dashboardview=()=>{
   setaddmovies(false);
@@ -37,14 +38,17 @@ const dashboardview=()=>{
 
           </div>
           <div className='admin-container'>
+            
+            {
+              addmovies ? <AddMovies/>:null
+              
+            }
+
 {
-  addmovies?<AddMovies/>:""
+  viewmovies?<DisplayMovies/>:null
 }
 {
-  viewmovies?<DisplayMovies/>:""
-}
-{
-  viewdashboard?<Dashboard/>:""
+  viewdashboard?<DashBoard/>:null
 }
 
           </div>
