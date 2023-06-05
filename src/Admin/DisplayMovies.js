@@ -8,7 +8,7 @@ function DisplayMovies() {
             setmovies(res.data)
 
         })
-    })
+    },[])
   return (
     <div>DisplayMovies
         <table border="2">
