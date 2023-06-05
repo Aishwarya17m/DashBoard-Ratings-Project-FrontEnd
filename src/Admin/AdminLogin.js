@@ -4,11 +4,15 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 function AdminLogin() {
     const [adminEmail, setadminEmail] = useState("");
+    const [login,setlogin]=useState([])
     const [adminPassword, setadminPassword] = useState("");
 
     const handleSubmit = () => {
         axios.get("http://localhost:8282/admin/getAdmin").then((res)=>{
+            
+           setlogin(res.data)
            res.data.forEach(item=>{
+            console.log(item.adminEmail)
             if(adminEmail===item.adminEmail && adminPassword===item.adminPassword){
                 window.sessionStorage.setItem("adminEmail",adminEmail);
                 window.location.href="/AdminHome"
@@ -17,12 +21,15 @@ function AdminLogin() {
                 alert("wrong credentials")
             }
         
+           }).catch(err=>{
+            console.log(err)
            })
         })
     }
    
     return (
         <div>
+            {console.log(login)}
             <div className='admin-login-container'>
                 <div className='admin-login-left-container'>
                 </div>
@@ -43,9 +50,9 @@ function AdminLogin() {
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
-                        <Button variant="primary" type="submit" >
-                            Submit
-                        </Button>
+                        <button>Submit</button>
+                            
+                       
                     </Form>
                 </div>
             </div>
