@@ -4,36 +4,24 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement} from 'chart.j
 
  ChartJS.register(CategoryScale,LinearScale,BarElement);
 function BarComponent(props) {
-    const [releasedate,setreleasedate]=useState([])
-    const [countmovies,setcountmovies]=useState([])
-    let counts={}
-
+    const [movies,setmovies]=useState([])
+    
     useEffect(()=>{
-      let lable=[]
-      let moviecount=[]
- 
+      let counts={}
        props.data.forEach(element => {
-        
           const year = element.releaseDate;
           counts[year] = counts[year] ? counts[year] + 1 : 1;
         });
-     const values=Object.entries(counts)
-values.forEach(([key,value])=>{
-lable.push(key)
-  moviecount.push(value)
-})
-setreleasedate(lable)
-setcountmovies(moviecount)
-    
+        setmovies(counts)
     },[props.data])
 
     const bardata = {
-        labels: releasedate,
+        labels: Object.keys(movies),
         datasets: [
           {
             label: 'Count of Movies',
-            legend:["kannada"],
-            data:countmovies,
+            labels:["mon"],
+            data:Object.values(movies),
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -76,7 +64,8 @@ setcountmovies(moviecount)
                 }
                 
              }]
-            }
+            },
+            
         }}
     }
              
