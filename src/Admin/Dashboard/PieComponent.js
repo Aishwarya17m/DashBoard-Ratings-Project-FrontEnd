@@ -66,7 +66,7 @@ setcountmovies(moviecount)
   return (
     <div>
         Pie chart
-        {console.log(props.data)}
+       
         <div className='pie-chart' style={{width:"300px",height:"300px"}}>
         
         <Pie data={piedata}
