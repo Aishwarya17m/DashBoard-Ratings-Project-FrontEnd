@@ -71,7 +71,7 @@ setcountmovies(moviecount)
              yAxes:[{
                 display:true,
                 ticks:{
-                stepSize:1.0
+                stepSize:1
                
                 
                 }

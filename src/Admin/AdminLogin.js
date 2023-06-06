@@ -1,16 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 function AdminLogin() {
     const [adminEmail, setadminEmail] = useState("");
-    const [login,setlogin]=useState([])
+    const [login,setlogin]=useState({})
     const [adminPassword, setadminPassword] = useState("");
 
-    const handleSubmit = () => {
+    // useEffect(()=>{
+    //     axios.get("http://localhost:8282/admin/getAdmin").then((res)=>{
+    //       console.log(res.data)
+    // })
+    // },[])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
         axios.get("http://localhost:8282/admin/getAdmin").then((res)=>{
-            
-           setlogin(res.data)
+          
+            setlogin(res.data)
+           console.log(res)
+           
            res.data.forEach(item=>{
             console.log(item.adminEmail)
             if(adminEmail===item.adminEmail && adminPassword===item.adminPassword){
@@ -20,27 +29,25 @@ function AdminLogin() {
             else{
                 alert("wrong credentials")
             }
-        
-           }).catch(err=>{
-            console.log(err)
+           
            })
         })
     }
    
     return (
         <div>
-            {console.log(login)}
+           
             <div className='admin-login-container'>
                 <div className='admin-login-left-container'>
                 </div>
                 <div className='admin-login-right-container'>
-                    <Form onSubmit={handleSubmit}>
+                    <Form >
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Admin Email ID</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" value={adminEmail} onChange={e =>setadminEmail(e.target.value)
                              } />
                             <Form.Text className="text-muted">
-                              
+                            
                             </Form.Text>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -50,7 +57,7 @@ function AdminLogin() {
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
-                        <button>Submit</button>
+                        <button onClick={handleSubmit}>Submit</button>
                             
                        
                     </Form>
