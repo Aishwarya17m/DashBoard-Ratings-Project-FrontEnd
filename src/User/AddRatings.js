@@ -47,7 +47,7 @@ function AddRatings() {
             movies.map(m=>{
                 return(
                     <tr key={m.movieId}>
-                       <td> {m.movie.movieName}</td>
+                       <td> {m.movieName}</td>
                         <td>{m.language}</td>
                         <td>{m.category}</td>
                         <td>{m.releaseDate}</td>
