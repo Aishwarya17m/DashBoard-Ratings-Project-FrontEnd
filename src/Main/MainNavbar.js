@@ -11,7 +11,7 @@ function MainNavbar() {
           <Navbar.Brand href="/">Movie Rating</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/Adminlogin">Admin Login</Nav.Link>
-            <Nav.Link href="/UserHome">User Login</Nav.Link>
+            <Nav.Link href="/Userlogin">User Login</Nav.Link>
           
           </Nav>
         </Container>

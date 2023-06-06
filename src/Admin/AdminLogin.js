@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 function AdminLogin() {
     const [adminEmail, setadminEmail] = useState("");
-    const [login,setlogin]=useState({})
     const [adminPassword, setadminPassword] = useState("");
 
-    // useEffect(()=>{
-    //     axios.get("http://localhost:8282/admin/getAdmin").then((res)=>{
-    //       console.log(res.data)
-    // })
-    // },[])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.get("http://localhost:8282/admin/getAdmin").then((res)=>{
+       axios.get("http://localhost:8282/admin/getAdmin").then((res)=>{
           
-            setlogin(res.data)
+           
            console.log(res)
            
            res.data.forEach(item=>{
@@ -57,7 +51,7 @@ function AdminLogin() {
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
-                        <button onClick={handleSubmit}>Submit</button>
+                        <Button onClick={handleSubmit}>Submit</Button>
                             
                        
                     </Form>
