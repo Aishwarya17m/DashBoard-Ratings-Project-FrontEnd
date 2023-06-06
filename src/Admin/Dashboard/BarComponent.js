@@ -6,7 +6,6 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement} from 'chart.j
 function BarComponent(props) {
     const [releasedate,setreleasedate]=useState([])
     const [countmovies,setcountmovies]=useState([])
- 
     let counts={}
 
     useEffect(()=>{
