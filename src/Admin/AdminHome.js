@@ -59,4 +59,3 @@ const dashboardview=()=>{
 }
 
 export default AdminHome
-

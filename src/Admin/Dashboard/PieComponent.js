@@ -1,41 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import { Pie} from 'react-chartjs-2';
-
 ChartJS.register(ArcElement, Tooltip, Legend);
-
 function PieComponent(props) {
-
-    const [languages,setlanguages]=useState([])
-    const [countmovies,setcountmovies]=useState([])
- 
-    let counts={}
-
+  const [movies,setmovies]=useState([])
+  
     useEffect(()=>{
-      let lable=[]
-      let moviecount=[]
- 
+      let counts={}
        props.data.forEach(element => {
-        
           const language = element.language;
           counts[language] = counts[language] ? counts[language] + 1 : 1;
         });
-     const values=Object.entries(counts)
-values.forEach(([key,value])=>{
-lable.push(key)
-  moviecount.push(value)
-})
-setlanguages(lable)
-setcountmovies(moviecount)
-    
+     setmovies(counts) 
     },[props.data])
 
     const piedata = {
-        labels: languages,
+        labels: Object.keys(movies),
         datasets: [
           {
             label: 'Count of Movies',
-            data:countmovies,
+            data:Object.values(movies),
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
