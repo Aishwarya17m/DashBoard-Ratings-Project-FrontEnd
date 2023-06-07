@@ -5,6 +5,7 @@ import './Styles/AdminHome.css'
 import DisplayMovies from './DisplayMovies';
 
 import DashBoard from './Dashboard/DashBoard';
+import { Link } from 'react-router-dom';
 function AdminHome() {
   const [addmovies,setaddmovies]=useState(false);
   const [viewmovies,setviewmovies]=useState(false);
@@ -31,9 +32,16 @@ const dashboardview=()=>{
         <AdminNavbar/>
         <div className='admin-main-container'>
           <div className='admin-sidebar'>
-          <button onClick={dashboardview}>Dashboard</button><br/>
-            <button onClick={addMoviesTab}>Add Movies</button><br/>
-            <button onClick={ViewMoviesTab}>View Movies</button>
+            <div className='admin-dashboardview'>
+          <Link onClick={dashboardview} className='dashboard-link'>Dashboard</Link>
+          </div>
+          <div className='admin-addmovie'>
+            <Link onClick={addMoviesTab} className='addmovie-link'>Add Movies</Link>
+            
+            </div>
+            <div className='admin-viewmovie'>
+            <Link onClick={ViewMoviesTab} className='viewmovie-link'>View Movies</Link>
+            </div>
             
 
           </div>

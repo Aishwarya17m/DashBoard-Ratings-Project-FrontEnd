@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 function UserNavbar() {
+   
+const email=window.sessionStorage.getItem("UserEmail")
+   
 const logout=()=>{
      window.sessionStorage.clear();
 }
@@ -14,6 +17,7 @@ const logout=()=>{
       <Nav className="me-auto">
         
         <Nav.Link href="/" onClick={logout}>Log Out</Nav.Link>
+        <Nav.Link  >{email.split("@gmail.com")}</Nav.Link>
      
       
       </Nav>

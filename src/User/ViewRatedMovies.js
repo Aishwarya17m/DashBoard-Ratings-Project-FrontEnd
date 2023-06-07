@@ -13,7 +13,7 @@ function ViewRatedMovies() {
 
        
 
-    },[])
+    },[uid])
   return (
     <div>ViewRatedMovies
          <table>

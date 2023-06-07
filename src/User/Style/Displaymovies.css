@@ -1,0 +1,12 @@
+.movie-container{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.movie-name-container{
+    text-align: center;
+    box-shadow: 1px 2px 3px black;
+    padding: 20px;
+    width:80%;
+    border-radius: 10px;
+}

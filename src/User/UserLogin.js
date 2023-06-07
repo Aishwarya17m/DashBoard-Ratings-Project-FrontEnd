@@ -12,6 +12,7 @@ axios.get("http://localhost:8282/admin/getallusers").then(res=>{
   res.data.forEach(u => {
     if(u.userEmail===userEmail && u.password===userPassword){
       alert("login done")
+      window.sessionStorage.setItem("UserEmail",userEmail);
       window.location.href=`/UserHome/${u.userId}`
       
     }

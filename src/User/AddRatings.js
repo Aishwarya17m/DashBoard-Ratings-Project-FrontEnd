@@ -1,64 +1,94 @@
 import axios from 'axios'
 import React, { useEffect ,useState} from 'react'
 import { useParams } from 'react-router-dom'
-
+import UserNavbar from './UserNavbar'
+import './Style/Addratings.css'
 function AddRatings() {
     const [movies,setmovies]=useState([])
     const {mid}=useParams()
     const {uid}=useParams()
-    const [rating,setrating]=useState(0)
-    useEffect(()=>{
-       
+   let [ratings,setratings]=useState(0)
+   const [rating,setrating]=useState(0)
+   let run=false
+
+
+   useEffect(()=>{
+    if(!run){   
+        fetchdata();
+     run=true
+   }
+},[])
+
+   const fetchdata=()=>{
+    
       axios.get(`http://localhost:8282/user/getMovie/${mid}`).then(res=>{
             setmovies([res.data])
-            
+    let count=0
+    axios.get(`http://localhost:8282/user/getMovieRating/${mid}`).then(res=>{
+ 
+              setratings(res.data)
+             
+          
+                   
                     
         })
-    },[mid])
+               
+        })
+    }
 
-    const rateMovie=(e)=>{
+    const rateMovie= (e)=>{
 
         e.preventDefault();
         const data={
          
             rating
         }
-        axios.post(`http://localhost:8282/user/rateMovie/${uid}/${mid}`,data).then(res=>{
+        if(rating.length===0){
+            alert("enter rating")
+        }
+        else
+        if(rating<5 && rating>5){
+            alert("invalid rating")
+        }
+else{
+      axios.post(`http://localhost:8282/user/rateMovie/${uid}/${mid}`,data).then(res=>{
             alert(res.data)
             
            
+        }).catch(err=>{
+            console.log(err)
         })
     }
+    }
   return (
-    <div>AddRatings
+    <div>
+   
+        <UserNavbar/>
+        AddRatings
  
-        <table>
-     <tbody>
-                <tr>
-                        <th>Movie Name</th>
-                        <th>Language</th>
-                        <th>Category</th>
-                        <th>Release Date</th>
-                        <th>Rate Movie</th>
-                        </tr>
+       
+                        <ul className='movie-ratings-container'>
                     
         {
 
             movies.map(m=>{
                 return(
-                    <tr key={m.movieId}>
-                       <td> {m.movieName}</td>
-                        <td>{m.language}</td>
-                        <td>{m.category}</td>
-                        <td>{m.releaseDate}</td>
-                        <td><input type="number" placeholder='add rating out of 5' min="1" max="5" value={rating} onChange={e=>setrating(e.target.value)} ></input></td>
-                        <td><button onClick={rateMovie}>Rate Movie</button></td>
-                    </tr>
+                    <div key={m.movieId}>
+                       <li>Movie Name:  {m.movieName}</li>
+                        <li>{m.language}</li>
+                        <li>{m.category}</li>
+                        <li>{m.releaseDate}</li>
+
+                        <li>{ratings}</li>
+                      
+                        <li><input type="number" placeholder='add rating out of 5' min="1" max="5" value={rating} onChange={e=>setrating(e.target.value)} ></input>
+                        <button onClick={rateMovie}>Rate Movie</button></li>
+                        </div>
+                  
                 )
             })
         }
-        </tbody>
-        </table>
+       </ul>
     </div>
   )
 }

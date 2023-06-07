@@ -1,12 +1,12 @@
-.admin-main-container{
+.user-main-container{
     display: flex;
     justify-content: space-between;
 }
-.admin-container{
+.user-container{
 width:80%;
 margin-top: 2%;
 }
-.admin-sidebar{
+.user-sidebar{
     background: #3c25c7;
     width: 15%;
     margin: 10px;
@@ -15,12 +15,12 @@ margin-top: 2%;
    
     padding-top: 5%;
 }
-.dashboard-link,.addmovie-link,.viewmovie-link{
+.displayMovie-link,.view-rating-link{
     color: white;
     text-decoration: none;
     font-weight: bold;
    
 }
-.admin-dashboardview,.admin-addmovie,.admin-viewmovie{
+.user-displayMovie{
     margin-bottom: 10px;
 }
