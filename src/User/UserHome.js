@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import UserNavbar from './UserNavbar'
 
 import DisplayMovies from './DisplayMovies'
@@ -6,9 +6,11 @@ import ViewRatedMovies from './ViewRatedMovies'
 import { Link } from 'react-router-dom'
 import './Style/Userhome.css'
 
+
 function UserHome() {
     const [viewrating,setviewrating]=useState(false)
     const [displaymovies,setdisplaymovies]=useState(true)
+    
 
     const Display=(e)=>{
       e.preventDefault();
@@ -37,7 +39,7 @@ function UserHome() {
           </div>
           <div className='user-container'>
            {
-            displaymovies&& <DisplayMovies/>
+            displaymovies&& <DisplayMovies />
            }
            {
             viewrating &&<ViewRatedMovies/>

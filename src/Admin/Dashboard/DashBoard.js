@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import axios from 'axios'
 import PieComponent from './PieComponent';
+import LineComponent from './LineComponent';
 import BarComponent from './BarComponent';
 
 function DashBoard() {
@@ -14,8 +15,9 @@ function DashBoard() {
     })
     },[])
   return (
-    <div>
+    <div className='admin-chart-view'>
         <PieComponent data={movies}/>
+        <LineComponent data={movies}/>
         <BarComponent data={movies}/>
     </div>
   )

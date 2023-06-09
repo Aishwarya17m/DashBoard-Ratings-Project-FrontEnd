@@ -24,3 +24,10 @@ margin-top: 2%;
 .admin-dashboardview,.admin-addmovie,.admin-viewmovie{
     margin-bottom: 10px;
 }
+
+/*charts*/
+.admin-chart-view{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}

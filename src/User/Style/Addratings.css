@@ -1,3 +1,13 @@
 .movie-ratings-container{
     list-style: none;
 }
+
+.img-accept{
+    width: 38px;
+    vertical-align: middle;
+}
+
+.img-cancel{
+    width: 38px;
+    vertical-align: middle;
+}

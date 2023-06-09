@@ -1,3 +1,9 @@
+
+/* navbar */
+.username {
+    text-transform: capitalize;
+    color:white;
+}
 .user-main-container{
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect ,useState} from 'react'
+import React, { useCallback, useEffect ,useRef,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import UserNavbar from './UserNavbar'
 import './Style/Addratings.css'
@@ -8,22 +8,15 @@ function AddRatings() {
     const {mid}=useParams()
     const {uid}=useParams()
    let [ratings,setratings]=useState(0)
-   const [rating,setrating]=useState(0)
-   let run=false
+   const [rating,setrating]=useState("")
+   const run=useRef(false)
 
 
-   useEffect(()=>{
-    if(!run){   
-        fetchdata();
-     run=true
-   }
-},[])
-
-   const fetchdata=()=>{
+   const fetchdata=useCallback(()=>{
     
       axios.get(`http://localhost:8282/user/getMovie/${mid}`).then(res=>{
             setmovies([res.data])
-    let count=0
+ 
     axios.get(`http://localhost:8282/user/getMovieRating/${mid}`).then(res=>{
  
               setratings(res.data)
@@ -34,7 +27,15 @@ function AddRatings() {
         })
                
         })
-    }
+    },[mid])
+
+
+    useEffect(()=>{
+        if(!run.current){   
+            fetchdata();
+         run.current=true
+       }
+    },[run,fetchdata])
 
     const rateMovie= (e)=>{
 
@@ -43,16 +44,17 @@ function AddRatings() {
          
             rating
         }
-        if(rating.length===0){
-            alert("enter rating")
-        }
-        else
-        if(rating<5 && rating>5){
+        
+     if(rating.length===0){
+        alert("add ratings")
+     }else
+        if(rating<1 || rating>5){
             alert("invalid rating")
         }
 else{
       axios.post(`http://localhost:8282/user/rateMovie/${uid}/${mid}`,data).then(res=>{
             alert(res.data)
+            window.location.href=`/UserHome/${uid}`
             
            
         }).catch(err=>{

@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from 'react'
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement} from 'chart.js';
- import {  Bar} from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement} from 'chart.js';
+ import {  Line} from 'react-chartjs-2';
 
- ChartJS.register(CategoryScale,LinearScale,BarElement);
-function BarComponent(props) {
+ ChartJS.register(CategoryScale,LinearScale,BarElement,PointElement,LineElement);
+function LineComponent(props) {
     const [movies,setmovies]=useState([])
     
     useEffect(()=>{
@@ -50,7 +50,7 @@ function BarComponent(props) {
        
         <div className='pie-chart' style={{width:"400px",height:"400px"}}>
         
-        <Bar data={bardata}
+        <Line data={bardata}
         
         options={{
         plugins:{
@@ -58,6 +58,7 @@ function BarComponent(props) {
              yAxes:[{
                 display:true,
                 ticks:{
+         
                   precision:0,
                 stepSize:1
                
@@ -79,4 +80,4 @@ function BarComponent(props) {
   )
 }
 
-export default BarComponent
+export default LineComponent
