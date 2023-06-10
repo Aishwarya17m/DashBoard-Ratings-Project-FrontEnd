@@ -35,7 +35,7 @@ function ViewRatedMovies() {
 
     }
     const editRating=(rid)=>{
-      console.log("edit clicked")
+      
 
       const data={
         rating:updateRating
@@ -47,7 +47,11 @@ function ViewRatedMovies() {
         fetchdata();
         
       })
-      setshowedit(false)
+      
+      const timer = setTimeout(() => {
+        setshowedit(false)
+      }, 2000);
+      return () => clearTimeout(timer);
 
     }
 const clickhappens=(rid)=>{

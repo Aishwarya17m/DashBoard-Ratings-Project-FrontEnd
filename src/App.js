@@ -26,7 +26,7 @@ function App() {
       <Route exact path="/AddRatings/:uid/:mid" element={<AddRatings/>}></Route>
       <Route exact path="/Userlogin" element={<UserLogin/>}></Route>
       <Route exact path="/UserReg" element={<UserRegistration/>}></Route>
-      <Route exact path="/AdminHome" element={<AdminHome/>}></Route>
+      <Route exact path="/AdminHome" element={<Movies><AdminHome/></Movies>}></Route>
       
      </Routes>
     </div>

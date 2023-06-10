@@ -13,12 +13,12 @@ function DisplayMovies() {
     // const run=useRef(false)
 
    const fetchdata=()=>{
- 
+ console.time()
     movies.map(async element => {
       
         await axios.get(`http://localhost:8282/user/getMovieRating/${element.movieId}`).then(res1=>{
            settotalrating(counts=>({...counts,[element.movieId]:res1.data}))
-          
+          console.timeEnd()
      })
  })
 }

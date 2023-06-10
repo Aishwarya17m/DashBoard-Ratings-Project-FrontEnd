@@ -1,14 +1,10 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
 
+import React, {  useContext} from 'react'
+import { MovieContext } from '../MovieContext'
 function DisplayMovies() {
-    const [movies,setmovies]=useState([]);
-    useEffect(()=>{
-        axios.get("http://localhost:8282/user/getMovies").then((res)=>{
-            setmovies(res.data)
-
-        })
-    },[])
+   
+    const [movies]=useContext(MovieContext)
+   
   return (
     <div>DisplayMovies
         <table border="2">

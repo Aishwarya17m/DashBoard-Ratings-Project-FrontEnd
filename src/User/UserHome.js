@@ -31,7 +31,7 @@ function UserHome() {
           <Link  onClick={Display} className='displayMovie-link'>Add ratings</Link>
           </div>
           <div className='user-view-rating'>
-          <Link onClick={ViewRating} className='view-rating-link'>View Rated Movies</Link>
+          <Link onClick={ViewRating} className='view-rating-link'>My Ratings</Link>
           </div>
          
             
