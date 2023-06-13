@@ -9,22 +9,25 @@ function AdminLogin() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-       axios.get("http://localhost:8282/admin/getAdmin").then((res)=>{
+        const data={
+            adminEmail,
+            adminPassword
+        }
+       axios.post("http://localhost:8282/admin/adminLogin",data).then((res)=>{
           
            
-           console.log(res)
-           
-           res.data.forEach(item=>{
-            console.log(item.adminEmail)
-            if(adminEmail===item.adminEmail && adminPassword===item.adminPassword){
+       if(res.data==="Success"){
+          
+          alert(res.data)
                 window.sessionStorage.setItem("adminEmail",adminEmail);
                 window.location.href="/AdminHome"
-            }
-            else{
-                alert("wrong credentials")
-            }
+       }
+       else {
+        alert(res.data)
+       }
            
-           })
+           
+         
         })
     }
    

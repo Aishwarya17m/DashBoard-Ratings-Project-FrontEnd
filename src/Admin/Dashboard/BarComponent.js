@@ -34,7 +34,7 @@ function BarComponent(props) {
           else if(rating>=3 && rating<4){
             counts["3-4"] = counts["3-4"] ? counts["3-4"] + 1 : 1;;
             }
-            else if(rating>=4 && rating<5){
+            else if(rating>=4 && rating<=5){
               counts["4-5"] = counts["4-5"] ? counts["4-5"] + 1 : 1;;
               }
         });
