@@ -6,6 +6,8 @@ import editrating from '../images/editrating.png'
 import cancelrating from '../images/cancel.png'
 import updaterating from '../images/accept.png'
 import './Style/Addratings.css'
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 
 function ViewRatedMovies() {
     const {uid}=useParams()
@@ -36,17 +38,25 @@ function ViewRatedMovies() {
     }
     const editRating=(rid)=>{
       
+      
 
-      const data={
-        rating:updateRating
-
-
+     
+      if(updateRating.length===0){
+        alert("invalid rating")
       }
+      else{
+        const data={
+          rating:updateRating
+  
+  
+        }
+       
       axios.put(`http://localhost:8282/user/updateRating/${rid}`,data).then(res=>{
         alert(res.data)
         fetchdata();
         
       })
+    }
       
       const timer = setTimeout(() => {
         setshowedit(false)
@@ -93,9 +103,11 @@ const clickhappens=(rid)=>{
                                     showclicked===r.ratingsId && showedit ?
                                    
                                     <>
-                                    <td><input type="number" style={{verticalAlign:"middle"}} value={r.updateRating} onChange={e=>{
-
-                                      setupdateRating(e.target.value)}}/></td>
+                                    <td className='update-ratings'>
+                                      <Stack spacing={1}>
+                                      <Rating name="half-rating" defaultValue={0} precision={0.5} value={r.updateRating} onChange={e=>setupdateRating(e.target.value)} />
+                                   
+                                      </Stack></td>
                                   <td><img  src={updaterating} alt="accept" className='img-accept' onClick={()=>editRating(r.ratingsId)}/></td>
                                     <td><img  src ={cancelrating} alt="cancel" className='img-cancel' onClick={()=>setshowedit(false)}/></td>
                                    

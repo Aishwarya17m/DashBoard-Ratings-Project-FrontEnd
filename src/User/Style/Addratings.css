@@ -11,3 +11,11 @@
     width: 38px;
     vertical-align: middle;
 }
+.css-dqr9h-MuiRating-label{
+    top: 10%;
+}
+.update-ratings{
+    /* box-shadow: 1px 2px 3px black;
+    border-radius: 10px; */
+    vertical-align: bottom;
+}

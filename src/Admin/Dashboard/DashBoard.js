@@ -1,24 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 
 import axios from 'axios'
 import PieComponent from './PieComponent';
 import LineComponent from './LineComponent';
 import BarComponent from './BarComponent';
+import Movies from '../../Movies';
+import { MovieContext } from '../../MovieContext';
 
 function DashBoard() {
+  const [ratings,setratings]=useState([]);
+  
 
-    const [movies,setmovies]=useState([]);
+    const [movies] =useContext(MovieContext)
+
+   
+
     useEffect(()=>{
-        axios.get("http://localhost:8282/user/getMovies").then((res)=>{
-            setmovies(res.data)
-    })
-    },[])
+   
+        
+      movies.forEach(element => {
+        axios.get(`http://localhost:8282/user/getMovieRating/${element.movieId}`).then((res)=>{
+                setratings(prev=>[...prev,res.data])
+              })
+            });
+          
+    
+          
+      
+      
+    
+   
+  },[movies])
   return (
     <div className='admin-chart-view'>
-        <PieComponent data={movies}/>
-        <LineComponent data={movies}/>
-        <BarComponent data={movies}/>
+        <Movies>
+        <PieComponent />
+        <LineComponent />
+        
+        <BarComponent rdata={ratings}/>
+        </Movies>
+       
+      
     </div>
   )
 }

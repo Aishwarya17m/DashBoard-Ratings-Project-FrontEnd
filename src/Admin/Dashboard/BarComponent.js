@@ -1,20 +1,53 @@
-import React,{useEffect,useState} from 'react'
+import React,{  useEffect,useState} from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement} from 'chart.js';
  import {  Bar} from 'react-chartjs-2';
 
  ChartJS.register(CategoryScale,LinearScale,BarElement);
 function BarComponent(props) {
     const [movies,setmovies]=useState([])
+  
+  
     
     useEffect(()=>{
-      let counts={}
-       props.data.forEach(element => {
-          const year = element.releaseDate;
-          counts[year] = counts[year] ? counts[year] + 1 : 1;
+      
+      let counts={
+        "No Rating":0,
+        "1-2":0,
+        "2-3":0,
+        "3-4":0,
+        "4-5":0,
+        
+      }
+    
+      
+       props.rdata.forEach((rating) => {
+       
+      if(isNaN(rating)){
+        counts["No Rating"] = counts["No Rating"] ? counts["No Rating"] + 1 : 1;
+      }
+        else  if(rating>=1 && rating<2){
+          counts["1-2"] = counts["1-2"] ? counts["1-2"] + 1 : 1;
+          }
+        else if(rating>=2 && rating<3){
+          counts["2-3"] = counts["2-3"] ? counts["2-3"] + 1 : 1;
+          }
+          else if(rating>=3 && rating<4){
+            counts["3-4"] = counts["3-4"] ? counts["3-4"] + 1 : 1;;
+            }
+            else if(rating>=4 && rating<5){
+              counts["4-5"] = counts["4-5"] ? counts["4-5"] + 1 : 1;;
+              }
         });
+     
         setmovies(counts)
-    },[props.data])
 
+
+      
+  
+ 
+
+    },[props.rdata])
+ 
     const bardata = {
         labels: Object.keys(movies),
         datasets: [
@@ -48,7 +81,7 @@ function BarComponent(props) {
     <div>
         Bar chart
        
-        <div className='pie-chart' style={{width:"400px",height:"400px"}}>
+        <div className='pie-chart' style={{width:"350px",height:"320px"}}>
         
         <Bar data={bardata}
         

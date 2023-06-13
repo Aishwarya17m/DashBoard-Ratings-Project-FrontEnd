@@ -3,12 +3,16 @@ import React, { useCallback, useEffect ,useRef,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import UserNavbar from './UserNavbar'
 import './Style/Addratings.css'
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+import Button from 'react-bootstrap/Button';
+
 function AddRatings() {
     const [movies,setmovies]=useState([])
     const {mid}=useParams()
     const {uid}=useParams()
    let [ratings,setratings]=useState(0)
-   const [rating,setrating]=useState("")
+   const [rating,setrating]=useState(0)
    const run=useRef(false)
 
 
@@ -48,7 +52,7 @@ function AddRatings() {
      if(rating.length===0){
         alert("add ratings")
      }else
-        if(rating<1 || rating>5){
+        if(rating<1){
             alert("invalid rating")
         }
 else{
@@ -66,7 +70,7 @@ else{
     <div>
    
         <UserNavbar/>
-        AddRatings
+        <h5>AddRatings</h5>
  
        
                         <ul className='movie-ratings-container'>
@@ -77,20 +81,26 @@ else{
                 return(
                     <div key={m.movieId}>
                        <li>Movie Name:  {m.movieName}</li>
-                        <li>{m.language}</li>
-                        <li>{m.category}</li>
-                        <li>{m.releaseDate}</li>
+                        <li>Language: {m.language}</li>
+                        <li>Category: {m.category}</li>
+                        <li>Release Year: {m.releaseDate}</li>
 
-                        <li>{ratings}</li>
+                        <li>Overall Ratings: {ratings} &#x2B50;</li>
                       
-                        <li><input type="number" placeholder='add rating out of 5' min="1" max="5" value={rating} onChange={e=>setrating(e.target.value)} ></input>
-                        <button onClick={rateMovie}>Rate Movie</button></li>
+                         
+                        <li><Stack spacing={1}>
+                            Rate Movie:
+                        <Rating name="half-rating" defaultValue={0} precision={0.5} value={parseFloat(rating)} onChange={e=>setrating(e.target.value)} size="large" />
+                         </Stack></li>
+                       
+                        <li><Button onClick={rateMovie}>Submit</Button></li>
                         </div>
                   
                 )
             })
         }
        </ul>
+      
     </div>
   )
 }

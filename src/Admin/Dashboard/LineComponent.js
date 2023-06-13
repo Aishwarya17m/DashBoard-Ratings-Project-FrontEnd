@@ -1,27 +1,31 @@
-import React,{useEffect,useState} from 'react'
+import React,{useContext, useEffect,useState} from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement} from 'chart.js';
  import {  Line} from 'react-chartjs-2';
+import { MovieContext } from '../../MovieContext';
 
  ChartJS.register(CategoryScale,LinearScale,BarElement,PointElement,LineElement);
 function LineComponent(props) {
-    const [movies,setmovies]=useState([])
+    
+    
+    const [count,setcount]=useState([])
+  const [movies]=useContext(MovieContext)
     
     useEffect(()=>{
       let counts={}
-       props.data.forEach(element => {
+       movies.forEach(element => {
           const year = element.releaseDate;
           counts[year] = counts[year] ? counts[year] + 1 : 1;
         });
-        setmovies(counts)
-    },[props.data])
+        setcount(counts)
+    },[movies])
 
     const bardata = {
-        labels: Object.keys(movies),
+        labels: Object.keys(count),
         datasets: [
           {
             label: 'Count of Movies',
             labels:["mon"],
-            data:Object.values(movies),
+            data:Object.values(count),
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -48,7 +52,7 @@ function LineComponent(props) {
     <div>
         Bar chart
        
-        <div className='pie-chart' style={{width:"400px",height:"400px"}}>
+        <div className='pie-chart' style={{width:"350px",height:"320px"}}>
         
         <Line data={bardata}
         

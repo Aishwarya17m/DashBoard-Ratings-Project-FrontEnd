@@ -8,16 +8,28 @@ function UserLogin() {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-axios.get("http://localhost:8282/admin/getallusers").then(res=>{
-  res.data.forEach(u => {
-    if(u.userEmail===userEmail && u.password===userPassword){
+    const data={
+      userEmail,
+      password:userPassword
+    }
+axios.post("http://localhost:8282/user/userLogin",data).then(res=>{
+ if(res.data.split(",")[1]==="login done"){
+    
       alert("login done")
       window.sessionStorage.setItem("UserEmail",userEmail);
-      window.location.href=`/UserHome/${u.userId}`
+      window.location.href=`/UserHome/${res.data.split(",")[0]}`
       
+ }
+    else if(res.data==="invalid login"){
+      alert(res.data)
     }
-  });
-})
+    else if(res.data==="user not registered"){
+      alert(res.data)
+    }
+
+    
+  }
+)
   
   }
 

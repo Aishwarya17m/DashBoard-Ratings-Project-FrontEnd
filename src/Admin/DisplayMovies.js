@@ -1,41 +1,46 @@
-
-import React, {  useContext} from 'react'
+import React, { useContext } from 'react'
 import { MovieContext } from '../MovieContext'
+import { Link } from 'react-router-dom'
 function DisplayMovies() {
-   
-    const [movies]=useContext(MovieContext)
-   
-  return (
-    <div>DisplayMovies
-        <table border="2">
-              <tbody>
-                <tr>
-                        <th>Movie Name</th>
-                        <th>Language</th>
-                        <th>Category</th>
-                        <th>Release Date</th>
-                        </tr>
-                    
-        {
-            
-            movies.map(m=>{
-                return(
-               
-                    <tr key={m.movieId}>
-                    <td >{m.movieName}</td>
-                    <td >{m.language}</td>
-                    <td >{m.category}</td>
-                    <td >{m.releaseDate}</td>
-                    </tr>
 
-                  
-                  
-                )
-            })
-         
+  const [movies] = useContext(MovieContext)
+
+  return (
+    <div>
+      <h3>Movie List</h3>
+
+
+      <div className='movie-container'>
+
+
+
+        {
+
+          movies.map((m, i) => {
+            return (
+              <div key={m.movieId} className='movie-name-container'>
+
+                <div><Link to={`/movieDetails/${m.movieId}`}> {m.movieName}</Link></div>
+                <span>({m.language})</span>
+
+                <div>
+
+                </div>
+
+
+
+
+              </div>
+
+
+
+
+
+            )
+          })
         }
-        </tbody>
-           </table>
+
+      </div>
     </div>
   )
 }

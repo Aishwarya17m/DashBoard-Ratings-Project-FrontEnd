@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import { Pie} from 'react-chartjs-2';
+import { MovieContext } from '../../MovieContext';
 ChartJS.register(ArcElement, Tooltip, Legend);
 function PieComponent(props) {
-  const [movies,setmovies]=useState([])
+const [count,setcount]=useState([])
+  const [movies]=useContext(MovieContext)
   
     useEffect(()=>{
       let counts={}
-       props.data.forEach(element => {
+       movies.forEach(element => {
           const language = element.language;
           counts[language] = counts[language] ? counts[language] + 1 : 1;
         });
-     setmovies(counts) 
-    },[props.data])
+     setcount(counts) 
+    },[movies])
 
     const piedata = {
-        labels: Object.keys(movies),
+        labels: Object.keys(count),
         datasets: [
           {
             label: 'Count of Movies',
-            data:Object.values(movies),
+            data:Object.values(count),
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -48,7 +50,7 @@ function PieComponent(props) {
         ],
     }
   return (
-    <div>
+    <div className='pie-chart-component'>
         Pie chart
        
         <div className='pie-chart' style={{width:"300px",height:"300px"}}>

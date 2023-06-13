@@ -9,6 +9,7 @@ import UserLogin from './User/UserLogin';
 import UserRegistration from './User/UserRegistration';
 import AddRatings from './User/AddRatings';
 import Movies from './Movies'
+import EditMovie from './Admin/EditMovie';
 function App() {
 
 
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/UserHome/:uid" element={ <Movies><UserHome/></Movies>}></Route>
       
       <Route exact path="/AddRatings/:uid/:mid" element={<AddRatings/>}></Route>
+      <Route exact path="/movieDetails/:mid" element={<Movies><EditMovie/></Movies>}></Route>
       <Route exact path="/Userlogin" element={<UserLogin/>}></Route>
       <Route exact path="/UserReg" element={<UserRegistration/>}></Route>
       <Route exact path="/AdminHome" element={<Movies><AdminHome/></Movies>}></Route>
