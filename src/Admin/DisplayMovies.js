@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { MovieContext } from '../MovieContext'
 import { Link } from 'react-router-dom'
+import edit from '../images/editrating.png'
 function DisplayMovies() {
 
   const [movies] = useContext(MovieContext)
@@ -20,8 +21,9 @@ function DisplayMovies() {
             return (
               <div key={m.movieId} className='movie-name-container'>
 
-                <div><Link to={`/movieDetails/${m.movieId}`}> {m.movieName}</Link></div>
+                <div><Link to={`/movieDetails/${m.movieId}`}> {m.movieName} </Link></div>
                 <span>({m.language})</span>
+                <div>{m.category}</div>
 
                 <div>
 

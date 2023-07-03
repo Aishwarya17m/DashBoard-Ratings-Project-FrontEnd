@@ -1,0 +1,93 @@
+.userpage-image,
+.adminpage-image {
+    position: relative;
+    width: 100%;
+    filter: blur(5px);
+    height:100vh;
+}
+
+.user-regispage-image{
+    position: relative;
+    width: 100%;
+    filter: blur(5px);
+    height:100%;
+}
+
+.user-login-container,
+.admin-login-container {
+    position: absolute;
+    top: 15%;
+    display: flex;
+    left: 11%;
+    width: 76%;
+    bottom:15%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 20px;
+}
+.user-registration-container{
+    position: absolute;
+    top: 12%;
+    display: flex;
+    left: 11%;
+    width: 76%;
+height: 100vh;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 20px;
+}
+.user-login-image,
+.admin-login-image ,
+.user-registration-image{
+    width: 500px;
+    height: 100%;
+    border-radius: 20px 0px 0px 20px;
+}
+
+
+
+
+.user-login-left-container,
+.admin-login-left-container,
+.user-registration-left-container {
+    width: 55%;
+}
+
+.user-login-right-container,
+.admin-login-right-container,
+.user-registration-right-container {
+    width: 29.5%;
+    margin-top: 4%;
+}
+
+#formBasicEmail,
+#formBasicPassword,
+#formBasicText,
+#formBasicConfirmPassword {
+    width: 140%;
+    border: 2px solid #1b4a64;
+    font-weight: 400;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.not-registered,
+.registered {
+    font-size: 13px;
+    margin-top: 2%;
+    margin-bottom: 10%;
+}
+
+.backward {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.validations {
+    margin: 3px;
+    font-size: 12px;
+    color: red;
+}

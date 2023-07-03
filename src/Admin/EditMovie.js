@@ -40,16 +40,17 @@ releaseDate:res.data.releaseDate
     
   return (
     <div>
+    
         <AdminNavbar/>
         
-     
+        <h4>Edit Movie Details</h4>
 
       
         
-                <div key={mid}>
+                <div >
                     
                        
-                    <div><EditText
+                    <div> <label>Movie Name:</label><EditText
             
 value={movieDetails.movieName}
           name="movie name"
@@ -57,23 +58,28 @@ value={movieDetails.movieName}
          onChange={e=>setmovieDetails({...movieDetails, movieName:e.target.value})}
      
           type="text"
+         
+         inline 
+         style={{width: '200px'}}
           
          
         />
         </div> 
-        <div>
+        <div><label>language:</label>
           <EditText
          value={movieDetails.language}
-         
+         inline 
+         style={{width: '200px'}}
           type="text"
           onChange={e=>setmovieDetails({...movieDetails, language:e.target.value})}
          
         />
         </div> 
-        <div>
+        <div><label>category:</label>
           <EditText
            value={movieDetails.category}
-          
+           inline 
+         style={{width: '200px'}}
           type="text"
           onChange={e=>setmovieDetails({...movieDetails, category:e.target.value})}
           
@@ -81,11 +87,13 @@ value={movieDetails.movieName}
         />
         
         </div>
-        <div> 
+        <div> <label>Release Year:</label>
           <EditText
            value={movieDetails.releaseDate}
            onChange={e=>setmovieDetails({...movieDetails, releaseDate:e.target.value})}
           type="text"
+          inline 
+          style={{width: '200px'}}
           
          
         />

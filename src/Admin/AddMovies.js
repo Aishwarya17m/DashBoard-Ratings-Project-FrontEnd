@@ -14,18 +14,19 @@ function AddMovies() {
      category,
      releaseDate:releasedate
       }
-      
+      if(movieName && language && category && releasedate){
       axios.post("http://localhost:8282/admin/addMovie",data).then((res)=>{
         console.log("movie added")
        
       })
     }
+  }
   return (
     <div>
-         <Form onSubmit={handleSubmit}>
+         <Form onSubmit={handleSubmit} id="addmovie-form">
                         <Form.Group className="mb-3" >
                             <Form.Label>Movie Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Movie Name" 
+                            <Form.Control type="text" placeholder="Enter Movie Name" id="movieName"
                             value={movieName}
                             onChange={e=>setmovieName(e.target.value)} />
                             <Form.Text className="text-muted">
@@ -34,21 +35,20 @@ function AddMovies() {
                         </Form.Group>
                         <Form.Group className="mb-3" >
                             <Form.Label>Language</Form.Label>
-                            <Form.Control type="text" placeholder="Enter language"  value={language}
+                            <Form.Control type="text" placeholder="Enter language"  id="movieLanguage" value={language}
                             onChange={e=>setlanguage(e.target.value)}/>
                         </Form.Group>
                         <Form.Group className="mb-3" >
                             <Form.Label>Category</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Category"  value={category}
+                            <Form.Control type="text" placeholder="Enter Category" id="movieCategory"  value={category}
                             onChange={e=>setcategory(e.target.value)}/>
                         </Form.Group>
                         <Form.Group className="mb-3" >
                             <Form.Label>Release Date</Form.Label>
-                            <Form.Control type="text" placeholder="Enter release date"  value={releasedate}
+                            <Form.Control type="text" placeholder="Enter release date" id="releaseDate" value={releasedate}
                             onChange={e=>setreleasedate(e.target.value)}/>
                         </Form.Group>
-                        
-                        <Button variant="primary" type="submit" >
+                        <Button variant="primary" type="submit" style={{background:"#db546e",border:"0"}}>
                             Submit
                         </Button>
                     </Form>

@@ -7,7 +7,7 @@ function UserNavbar() {
 const email=window.sessionStorage.getItem("UserEmail")
    
 const logout=()=>{
-     window.sessionStorage.clear();
+     window.sessionStorage.removeItem('UserEmail')
 }
   return (
     <div>
