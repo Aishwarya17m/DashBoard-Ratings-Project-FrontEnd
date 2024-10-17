@@ -1,0 +1,30 @@
+.edit-movies-form{
+    width: 60%;
+    margin: auto;
+    font-size:20px;
+}
+.Edit-movieName,.Edit-category,.Edit-language,.Edit-releaseDate{
+    padding:15px;
+    margin:5px;
+}
+label{
+    margin:5px;
+}
+#language-textbox:hover,#category-textbox:hover,#releaseDate-textbox:hover,#movieName-textbox:hover{
+    background-image: url('../../images/edit-movie.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position:right;
+    padding:10px;
+    border-radius: 10px;
+    padding-right:10%;
+   
+}
+#language-textbox:focus,#category-textbox:focus,#releaseDate-textbox:focus,#movieName-textbox:focus{
+    background-image:none
+}
+#language-textbox,#category-textbox,#releaseDate-textbox,#movieName-textbox{
+ 
+    width:500px;
+   
+}

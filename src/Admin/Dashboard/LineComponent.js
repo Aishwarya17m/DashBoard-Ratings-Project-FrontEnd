@@ -13,7 +13,7 @@ function LineComponent(props) {
     useEffect(()=>{
       let counts={}
        movies.forEach(element => {
-          const year = element.releaseDate;
+          const year = element.releaseDate.split('-')[0];
           counts[year] = counts[year] ? counts[year] + 1 : 1;
         });
         setcount(counts)
@@ -29,7 +29,7 @@ function LineComponent(props) {
             backgroundColor: [
               '#db546e',  //red
               '#2b9d9d',  // green
-              '#d4c851',   //yellow
+              '#ecd627',   //yellow
               '#443dd1',   //blue
               '#943ed4',   //violet
               'rgba(255, 159, 64, 0.2)',
@@ -37,7 +37,7 @@ function LineComponent(props) {
             borderColor: [
               '#db546e',  //red
               '#2b9d9d',  // green
-              '#d4c851',   //yellow
+              '#ecd627',   //yellow
               '#443dd1',   //blue
               '#943ed4',   //violet
               'rgba(255, 159, 64, 1)',

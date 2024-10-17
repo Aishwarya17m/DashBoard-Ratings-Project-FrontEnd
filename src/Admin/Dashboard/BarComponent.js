@@ -58,7 +58,7 @@ function BarComponent(props) {
             backgroundColor: [
               '#db546e',  //red
               '#2b9d9d',  // green
-              '#d4c851',   //yellow
+              '#ecd627',   //yellow
               '#443dd1',   //blue
               '#943ed4',   //violet
               'rgba(255, 159, 64, 0.2)',
@@ -66,7 +66,7 @@ function BarComponent(props) {
             borderColor: [
               '#db546e',  //red
               '#2b9d9d',  // green
-              '#d4c851',   //yellow
+              '#ecd627',   //yellow
               '#443dd1',   //blue
               '#943ed4',   //violet
               'rgba(255, 159, 64, 1)',

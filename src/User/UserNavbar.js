@@ -1,7 +1,6 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
+
 function UserNavbar() {
    
 const email=window.sessionStorage.getItem("UserEmail")
@@ -11,19 +10,18 @@ const logout=()=>{
 }
   return (
     <div>
-        <Navbar bg="dark" variant="dark">
-    <Container className='main-container'>
-      <Navbar.Brand href="/">User Home</Navbar.Brand>
-      <Nav className="me-auto">
-      
-        <Nav.Link className="username" >{email.split("@")[0]}</Nav.Link>
+         <div className='main-navbar'>
+          <div className='main-navbar-left'>
+            {/* <img src="" alt="movie_rating" className='movie-rating'/> */}
+            Movie Rating</div>
+          <div className="main-navbar-right">
+            
+            <Link  className='admin-login'>{email.split('@')[0].toLocaleUpperCase()}</Link>
+            <Link to="/" className="user-login"  onClick={logout}>Log Out</Link>
           
-        <Nav.Link href="/" onClick={logout}>Log Out</Nav.Link>
-     
-      
-      </Nav>
-    </Container>
-  </Navbar></div>
+          </div>
+        </div>
+       </div>
   )
 }
 

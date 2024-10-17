@@ -8,6 +8,10 @@ function AddMovies() {
     const [category,setcategory]=useState("")
     const [releasedate,setreleasedate]=useState("")
     const handleSubmit=()=>{
+      if(movieName.length===0 || language.length===0 || category.length===0 || releasedate.length===0){
+        alert("enter all movie details")
+      }
+      else{
       const data={
      movieName,
      language,
@@ -19,7 +23,10 @@ function AddMovies() {
         console.log("movie added")
        
       })
+    
+      
     }
+  }
   }
   return (
     <div>
@@ -45,9 +52,10 @@ function AddMovies() {
                         </Form.Group>
                         <Form.Group className="mb-3" >
                             <Form.Label>Release Date</Form.Label>
-                            <Form.Control type="text" placeholder="Enter release date" id="releaseDate" value={releasedate}
+                            <Form.Control type="date" placeholder="Enter release date" id="releaseDate" value={releasedate}
                             onChange={e=>setreleasedate(e.target.value)}/>
                         </Form.Group>
+                    
                         <Button variant="primary" type="submit" style={{background:"#db546e",border:"0"}}>
                             Submit
                         </Button>

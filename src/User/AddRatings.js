@@ -3,18 +3,19 @@ import React, { useCallback, useEffect ,useRef,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import UserNavbar from './UserNavbar'
 import './Style/Addratings.css'
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
 import Button from 'react-bootstrap/Button';
+import Starcomponent from '../Main/Starcomponent'
+
+
 
 function AddRatings() {
     const [movies,setmovies]=useState([])
     const {mid}=useParams()
     const {uid}=useParams()
-   let [ratings,setratings]=useState(0)
+  const [ratings,setratings]=useState(0)
    const [rating,setrating]=useState(0)
    const run=useRef(false)
-
+  
 
    const fetchdata=useCallback(()=>{
     
@@ -70,16 +71,17 @@ else{
     <div>
    
         <UserNavbar/>
+        <div>
         <h5>AddRatings</h5>
  
        
-                        <ul className='movie-ratings-container'>
+                        <div >
                     
         {
 
             movies.map(m=>{
                 return(
-                    <div key={m.movieId}>
+                    <ul key={m.movieId} className='movie-ratings-container'>
                        <li>Movie Name:  {m.movieName}</li>
                         <li>Language: {m.language}</li>
                         <li>Category: {m.category}</li>
@@ -88,19 +90,21 @@ else{
                         <li>Overall Ratings: {ratings} &#x2B50;</li>
                       
                          
-                        <li><Stack spacing={1}>
-                            Rate Movie:
-                        <Rating name="half-rating" defaultValue={0} precision={0.5} value={parseFloat(rating)} onChange={e=>setrating(e.target.value)} size="large" />
-                         </Stack></li>
-                       
+                        <li>Rate Movie:
+                     <Starcomponent size={30} submit={e=>setrating(e)}/> 
+                         </li>
+                         
+                      
+
                         <li><Button onClick={rateMovie}>Submit</Button></li>
-                        </div>
+                        
+                        </ul>
                   
                 )
             })
         }
-       </ul>
-      
+       </div>
+       </div>
     </div>
   )
 }

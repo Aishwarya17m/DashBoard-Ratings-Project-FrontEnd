@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { EditText } from 'react-edit-text';
 import 'react-edit-text/dist/index.css';
-
+import './Styles/EditMovies.css'
 function EditMovie() {
 
     const {mid}=useParams();
@@ -42,44 +42,48 @@ releaseDate:res.data.releaseDate
     <div>
     
         <AdminNavbar/>
+        <div className='edit-movies'>
         
         <h4>Edit Movie Details</h4>
 
       
         
-                <div >
+                <div  className='edit-movies-form'>
                     
                        
-                    <div> <label>Movie Name:</label><EditText
+                    <div className='Edit-movieName'> <label>Movie Name:</label>
+                    <EditText
             
 value={movieDetails.movieName}
           name="movie name"
-     
+     id="movieName-textbox"
          onChange={e=>setmovieDetails({...movieDetails, movieName:e.target.value})}
      
           type="text"
          
          inline 
-         style={{width: '200px'}}
+        
           
          
         />
         </div> 
-        <div><label>language:</label>
+        <div className='Edit-language' ><label>Language:</label>
           <EditText
          value={movieDetails.language}
          inline 
-         style={{width: '200px'}}
+         id="language-textbox"
+        
           type="text"
           onChange={e=>setmovieDetails({...movieDetails, language:e.target.value})}
          
         />
         </div> 
-        <div><label>category:</label>
+        <div className='Edit-category'><label>Category:</label>
           <EditText
            value={movieDetails.category}
            inline 
-         style={{width: '200px'}}
+           id="category-textbox"
+       
           type="text"
           onChange={e=>setmovieDetails({...movieDetails, category:e.target.value})}
           
@@ -87,20 +91,21 @@ value={movieDetails.movieName}
         />
         
         </div>
-        <div> <label>Release Year:</label>
+        <div className='Edit-releaseDate'> <label>Release Date:</label>
           <EditText
            value={movieDetails.releaseDate}
            onChange={e=>setmovieDetails({...movieDetails, releaseDate:e.target.value})}
-          type="text"
+          type="date"
+          id="releaseDate-textbox"
           inline 
-          style={{width: '200px'}}
+       
           
          
         />
         </div> 
     
         <button onClick={handleSubmit}>Submit</button>
-    
+        </div>
 
                    
            

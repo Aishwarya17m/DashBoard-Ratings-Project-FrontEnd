@@ -25,18 +25,20 @@ const [count,setcount]=useState([])
             backgroundColor: [
               '#db546e',  //red
               '#2b9d9d',  // green
-              '#d4c851',   //yellow
+              '#ecd627',   //yellow
               '#443dd1',   //blue
               '#943ed4',   //violet
-              '#e1a151' //orange
+              '#e1a151' ,//orange
+              '#4ac4dd' //l blue
             ],
             borderColor: [
               '#db546e',  //red
               '#2b9d9d',  // green
-              '#d4c851',   //yellow
+              '#ecd627',   //yellow
               '#443dd1',   //blue
               '#943ed4',   //violet
-              '#e1a151'    //orange
+              '#e1a151',    //orange
+              '#4ac4dd' //l blue
             ],
             borderWidth: 1,
             options: {

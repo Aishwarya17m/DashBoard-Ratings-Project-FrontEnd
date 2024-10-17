@@ -45,24 +45,15 @@ function DashBoard() {
   return (
     <div>
       <Movies>
-    <div className='admin-chart-view'>
-        
+    <div className='admin-chart-view'>        
          <CardComponent rdata={ratings} udata={users} allrdata={allRatings}/>
-       
         <PieComponent/>
-        <DonutComponent/>
-       
+        <DonutComponent allrdata={allRatings}/>
        <BarComponent rdata={ratings}/>
-      
-
         </div>
         <div>
-          
         <LineComponent />
         </div>
-       
-        
-       
         </Movies>
     </div>
     

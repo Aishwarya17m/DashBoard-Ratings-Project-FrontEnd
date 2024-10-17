@@ -11,11 +11,23 @@
     width: 38px;
     vertical-align: middle;
 }
-.css-dqr9h-MuiRating-label{
-    top: 10%;
+
+
+.fa-Star {
+    stroke: black;
+    stroke-width: 50px;
+    color:white;
+    padding-right:10px;
+   
+  
 }
-.update-ratings{
-    /* box-shadow: 1px 2px 3px black;
-    border-radius: 10px; */
-    vertical-align: bottom;
-}
+
+ .fa-halfStar{
+    stroke:black;
+    padding-right:10px;
+    
+ }
+ .fa-filled{
+    padding-right:10px;
+ }
+

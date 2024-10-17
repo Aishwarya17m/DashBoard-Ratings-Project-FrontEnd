@@ -1,0 +1,9 @@
+.pagination-container{
+    margin: auto;
+    width: 50%;
+   
+}
+.page-number{
+    padding-right: 20px;
+    cursor: pointer;
+}

@@ -25,8 +25,9 @@ function UserRegistration() {
         }
         if (userEmail && username && userPassword) {
             axios.post("http://localhost:8282/user/addUser", data).then(res => {
-                window.location.href = "/Userlogin"
-                alert("registered!")
+                alert(res.data)
+                // window.location.href = "/Userlogin"
+                
             })
         }
     }
@@ -43,11 +44,19 @@ function UserRegistration() {
         },
         password: {
             required: "Password is required",
+            minLength:{
+                value:6,
+                message:"Password must be at least 6 characters long!:)"
+            },
+            maxLength:{
+                value:50,
+                message:"password is too long to remember:)"
+            },
             pattern: {
-                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/,
-                message: "Invalid Password. Not matching requirements"
-            }
-
+                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[ -/:-@[-`{-~])/,
+                message: "Invalid Password. Should include atleast one small letter, capital letter, number and special chars"
+            },
+            
         },
         name: { required: "Name is required" },
         confirmpassword: {
@@ -127,6 +136,7 @@ function UserRegistration() {
 
                 </div>
             </div>
+            
         </div>
     )
 }

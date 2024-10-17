@@ -33,14 +33,14 @@ const dashboardview=()=>{
         <div className='admin-main-container'>
           <div className='admin-sidebar'>
             <div className='admin-dashboardview'>
-          <button onClick={dashboardview} className='dashboard-link'>Dashboard</button>
+          <button onClick={dashboardview} className={'dashboard-link-'+ (viewdashboard ? 'clicked':'notclicked')}>Dashboard</button>
           </div>
           <div className='admin-addmovie'>
-            <button onClick={addMoviesTab} className='addmovie-link'>Add Movies</button>
+            <button onClick={addMoviesTab} className={'addmovie-link-'+(addmovies?'clicked':'notclicked')}>Add Movies</button>
             
             </div>
             <div className='admin-viewmovie'>
-            <button onClick={ViewMoviesTab} className='viewmovie-link'>View Movies</button>
+            <button onClick={ViewMoviesTab} className={'viewmovie-link-' + (viewmovies?'clicked':'notclicked')}>View Movies</button>
             </div>
             
 

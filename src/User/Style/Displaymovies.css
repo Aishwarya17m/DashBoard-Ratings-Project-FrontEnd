@@ -2,8 +2,8 @@
 /* Admin $ User*/
 .movie-container{
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .movie-name-container{
     text-align: center;
@@ -12,4 +12,49 @@
     width:80%;
     background: white;
     border-radius: 10px;
+}
+.viewRatedMovies-container tr,.viewRatedMovies-header{
+
+    border-radius: 10px;
+
+ 
+    box-shadow: 2px 2px 1px 2px #e7dbdb;
+}
+
+.viewRatedMovies-container tr td{
+    padding: 10px 0px 10px 10px;
+}
+.viewRatedMovies-container tr th{
+    padding-left:10px;
+}
+.filter-container{
+    padding: 20px 0px 20px 20px;
+    background: #d4d1e6;
+    box-shadow: 1px 2px 3px 2px grey;
+    width: 95%;
+    margin: 0px 0px 20px 0px;
+    border-radius: 10px;
+}
+.filter-searchdata{
+    padding: 5px;
+    border-radius: 10px;
+
+}
+.select-filter{
+    padding: 7px;
+    border-radius: 10px;
+    background: black;
+    color: white;
+    margin:0px 10px 0px 10px;
+}
+.paginate-footer{
+    border: 1px solid black;
+    padding: 5px;
+    width: 50%;
+    margin: auto;
+    box-shadow: 2px 2px 1px 1px grey;
+}
+.rated-moviesList{
+    width:95%;
+    margin-bottom:20px;
 }
